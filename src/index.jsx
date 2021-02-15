@@ -11,6 +11,8 @@ import '../assets/stylesheets/application.scss';
 import carsReducer from './reducers/cars_reducer';
 import { reducer as formReducer} from 'redux-form';
 import CarsIndex from './containers/cars_index';
+import CarsShow from './containers/cars_show';
+import CarsNew from './containers/cars_new';
 
 const garageName = `garage${Math.floor(10 + (Math.random() * 90))}`; //prompt("What is your garage?") ||
 const initialState = {
@@ -32,6 +34,8 @@ ReactDOM.render(
     <Router history={history}>
       <Switch>
         <Route path='/' exact component={CarsIndex} />
+        <Route path='/cars/new' exact component={CarsNew} />
+        <Route path='/cars/:id' component={CarsShow} />
       </Switch>
     </Router>
   </Provider>,
