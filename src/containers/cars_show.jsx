@@ -2,19 +2,18 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { fetchCars } from '../actions'
+import { fetchCar } from '../actions'
 
 class CarsShow extends Component {
-  renderCar(id){
-    // const currCar = this.props.cars.filter(car=>car.id === id);
-    // return (
-    //   <div className="car">
-    //     <ul>
-    //       {Object.entries(currCar).map(attr => <p>{attr[0]} : {attr[1]} </p>)}
-    //     </ul>
-    //   </div>
+  renderCar(){
+    return (
+      <div className="car">
+        <ul>
+          {Object.entries(this.props.car).map(attr => <p>{attr[0]} : {attr[1]} </p>)}
+        </ul>
+      </div>
 
-    //   );
+      );
   }
 
 
@@ -32,4 +31,16 @@ class CarsShow extends Component {
   }
 }
 
-export default CarsShow;
+function mapDispatchToProps(dispatch) {
+ return bindActionCreators(
+ { fetchCar },
+ dispatch
+ );
+}
+
+function mapStateToProps(state, ownProps) {
+ const idFromUrl = parseInt(ownProps.match.params.id, 10); // From URL
+ const car = state.cars.find(p => p.id === idFromUrl);
+ return { car };
+}
+export default connect(mapStateToProps, mapDispatchToProps)(CarsShow);

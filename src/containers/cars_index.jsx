@@ -6,7 +6,7 @@ import { fetchCars } from '../actions'
 
 class CarsIndex extends Component {
   componentDidMount() {
-    this.props.fetchCars('damians-cars');
+    this.props.fetchCars('prwlr');
   }
 
   renderCars(){
