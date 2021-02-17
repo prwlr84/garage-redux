@@ -19,12 +19,12 @@ class CarsShow extends Component {
     console.log(this);
     return (
       <div>
-        <div className="car">
+        <div className="car-detail">
           <ul>
             {Object.entries(this.props.car).map(attr => <p key={Math.random()}>{attr[0]} : {attr[1]} </p>)}
           </ul>
+        <p className='btn' onClick={() => this.deleteCar(this.props.car.id)}>IT'S FIXED</p>
         </div>
-        <p onClick={this.deleteCar(this.props.car.id)}>IT'S FIXED</p>
       </div>
 
       );
