@@ -2,15 +2,29 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { fetchCar } from '../actions'
+import { fetchCar } from '../actions';
+import Sidebar from './sidebar';
 
 class CarsShow extends Component {
+
+  deleteCar(id){
+    fetch(`https://wagon-garage-api.herokuapp.com/cars/${id}`,{
+      method: 'DELETE'
+    }).then(() => {
+     this.props.history.push('/'); // Navigate after submit
+     })
+  }
+
   renderCar(){
+    console.log(this);
     return (
-      <div className="car">
-        <ul>
-          {Object.entries(this.props.car).map(attr => <p>{attr[0]} : {attr[1]} </p>)}
-        </ul>
+      <div>
+        <div className="car">
+          <ul>
+            {Object.entries(this.props.car).map(attr => <p key={Math.random()}>{attr[0]} : {attr[1]} </p>)}
+          </ul>
+        </div>
+        <p onClick={this.deleteCar(this.props.car.id)}>IT'S FIXED</p>
       </div>
 
       );
@@ -20,9 +34,7 @@ class CarsShow extends Component {
   render(){
     return(
       <div style={{width: '100vw'}}>
-        <div className="car-panel col-sm-3" style={{backgroundColor: 'red', height: '100vh'}}>
-          {}
-        </div>
+        <Sidebar />
         <div className="cars-list col-sm-9" style={{backgroundColor: 'blue', height: '100vh'}}>
           {this.renderCar()}
         </div>
@@ -41,6 +53,6 @@ function mapDispatchToProps(dispatch) {
 function mapStateToProps(state, ownProps) {
  const idFromUrl = parseInt(ownProps.match.params.id, 10); // From URL
  const car = state.cars.find(p => p.id === idFromUrl);
- return { car };
+ return { car, idFromUrl };
 }
 export default connect(mapStateToProps, mapDispatchToProps)(CarsShow);

@@ -9,19 +9,22 @@ import { createHistory as history } from 'history';
 
 import '../assets/stylesheets/application.scss';
 import carsReducer from './reducers/cars_reducer';
+import garageReducer from './reducers/garage_reducer';
 import { reducer as formReducer} from 'redux-form';
 import CarsIndex from './containers/cars_index';
 import CarsShow from './containers/cars_show';
 import CarsNew from './containers/cars_new';
 
-const garageName = `garage${Math.floor(10 + (Math.random() * 90))}`; //prompt("What is your garage?") ||
+//const garageName = prompt(`What is your garage?`) || `garage${Math.floor(10 + (Math.random() * 90))}`;
+
+
 const initialState = {
-  garage: garageName,
+  garage: " ",
   cars: []
 };
 
 const reducers = combineReducers({
-  garage:  (state = null, action) => state,
+  garage:garageReducer,
   cars:carsReducer,
   form:formReducer
 });

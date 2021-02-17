@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form';
 import { newCar } from '../actions';
 import { connect } from 'react-redux';
+import Sidebar from './sidebar';
 
 class CarsNew extends Component {
     onSubmit = (values) => {
-     this.props.newCar('prwlr', values, (car) => {
+     this.props.newCar(this.props.garage, values, (car) => {
       console.log(values);
      this.props.history.push('/'); // Navigate after submit
      return car;
@@ -30,9 +31,7 @@ class CarsNew extends Component {
   render(){
     return(
       <div style={{width:'100vw'}}>
-        <div className="car-panel col-sm-3" style={{backgroundColor: 'red', height: '100vh'}}>
-          {}
-        </div>
+        <Sidebar />
         <div className="car-panel col-sm-9" style={{backgroundColor: 'blue', height: '100vh'}}>
          <form onSubmit={this.props.handleSubmit(this.onSubmit)}>
            <Field

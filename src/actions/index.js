@@ -2,6 +2,24 @@
 export const FETCH_CARS = 'FETCH_CARS';
 export const FETCH_CAR = 'FETCH_CAR';
 export const NEW_CAR = 'NEW_CAR';
+export const SET_GARAGE = 'SET_GARAGE';
+export const GET_GARAGE = 'GET_GARAGE';
+
+export function getGarage() {
+  const garageList = fetch(`https://wagon-garage-api.herokuapp.com/`)
+    .then(r=>r.json());
+  return {
+    type: GET_GARAGE,
+    payload: garageList.garages
+ }
+}
+
+export function setGarage(value) {
+  return {
+    type: SET_GARAGE,
+    payload: value.garage
+ }
+}
 
 export function newCar(garage, body, callback) {
   const req = fetch(`https://wagon-garage-api.herokuapp.com/${garage}/cars`,{

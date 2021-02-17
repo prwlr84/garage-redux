@@ -3,14 +3,12 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { fetchCars } from '../actions'
+import Sidebar from './sidebar'
 
 class CarsIndex extends Component {
-  componentDidMount() {
-    this.props.fetchCars('prwlr');
-  }
+
 
   renderCars(){
-    console.log(this.props.cars);
     return this.props.cars.map(car =>{
      return (
               <Link to={`/cars/${car.id}`} key={car.id}>
@@ -28,9 +26,7 @@ class CarsIndex extends Component {
   render(){
     return(
       <div style={{width: '100vw'}}>
-        <div className="car-panel col-sm-3" style={{backgroundColor: 'red', height: '100vh'}}>
-          {}
-        </div>
+        <Sidebar dest="/cars/new"/>
         <div className="cars-list col-sm-9" style={{backgroundColor: 'blue', height: '100vh'}}>
           {this.renderCars()}
         </div>
@@ -48,7 +44,8 @@ function mapDispatchToProps(dispatch) {
 
 function mapStateToProps(state) {
  return {
- cars: state.cars
+ cars: state.cars,
+ garage: state.garage
  };
 }
 
