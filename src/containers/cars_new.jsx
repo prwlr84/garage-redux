@@ -33,7 +33,7 @@ class CarsNew extends Component {
       <div style={{width:'100vw'}}>
         <Sidebar />
         <div className="car-panel col-sm-9" style={{backgroundColor: 'blue', height: '100vh'}}>
-         <form onSubmit={this.props.handleSubmit(this.onSubmit)}>
+         <form className="new-form" onSubmit={this.props.handleSubmit(this.onSubmit)}>
            <Field
            label="Brand"
            name="brand"

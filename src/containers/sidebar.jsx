@@ -42,7 +42,7 @@ class Sidebar extends Component {
   garageSelector(){
       return(
         <div className="car-panel col-sm-3" style={{backgroundColor: 'red', height: '100vh'}}>
-         <form onSubmit={this.props.handleSubmit(this.onSubmit)}>
+         <form className="side-form" onSubmit={this.props.handleSubmit(this.onSubmit)}>
            <Field
            label={`Select a garage (${this.state.garages.map(g=>g.name)}) \n or create a new one`}
            name="garage"
@@ -51,7 +51,7 @@ class Sidebar extends Component {
            />
            <button className="btn btn-primary" type="submit"
           disabled={this.props.pristine || this.props.submitting}>
-           Create Post
+           Go to garage
            </button>
          </form>
         </div>
@@ -61,12 +61,14 @@ class Sidebar extends Component {
   garageOn(){
     return(
       <div className="car-panel col-sm-3" style={{backgroundColor: 'red', height: '100vh'}}>
-        <img src="https://picsum.photos/200" alt=""/>
-        <h3>{this.props.garage}</h3>
-        <p>Lorem, ipsum dolor sit, amet consectetur adipisicing elit. Laboriosam, voluptatibus?</p>
-        <Link to={this.props.dest || '/'}>
-          <h3>{this.props.dest ? (<p>Add New Car</p>) : (<p>Back</p>)}</h3>
-        </Link>
+        <div className="card">
+          <img src="../../assets/stylesheets/signatureLogo.svg" alt=""/>
+          <h3>{this.props.garage}</h3>
+          <p>The best garage, with the best inventory page, made by Antal Bako</p>
+          <Link to={this.props.dest || '/'}>
+            <button className="btn btn-primary">{this.props.dest ? ('Add New Car') : ('Back')}</button>
+          </Link>
+        </div>
       </div>
     )
   }

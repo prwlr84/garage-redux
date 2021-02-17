@@ -1,4 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
 #root {
   margin: 0;
-   padding: 0;
+  padding: 0;
+  font-family: 'Share Tech Mono', monospace;
+}
+
+div.car-panel {
+  display: flex;
+  align-items: center;
+
+  form.side-form {
+    text-align: center;
+    color: white;
+
+    button{
+      color: white;
+      background-color: red;
+      border: 3px solid blue;
+    }
+
+    button:hover, button[disabled]:hover{
+      background-color: blue;
+      border-radius: 7px;
+      border-color: red;
+    }
+  }
+
+  div.card {
+    flex-direction: column;
+    text-align: center;
+    color: white;
+
+
+    button.btn {
+      color: white;
+      background-color: red;
+      border: 3px solid blue;
+
+      p{
+        margin: 0;
+      }
+    }
+
+    button.btn:hover, button.btn[disabled]:hover{
+      background-color: blue;
+      border-radius: 7px;
+      border-color: red;
+    }
+  }
+}
+
+//sidebar^ cars-list=
+
+div.cars-list {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  overflow: scroll;
+
+
+  div.car{
+    padding: 10px;
+    margin: 5px auto;
+    border: 3px solid red;
+    display: flex;
+    width: 90%;
+    color: white;
+    justify-content: space-between;
+    border-radius: 7px;
+    align-items: center;
+  }
+
+  img {
+    height: 7rem;
+  }
+}
+
+div.cars-list::-webkit-scrollbar {
+  display: none;
+}
+
+//new
+
+form.new-form {
+  width: 80%;
+  text-align: center;
+  margin: 0 auto;
+  color: white;
+
+  button{
+    color: white;
+    background-color: red;
+    border: 3px solid blue;
+  }
+
+  button:hover, button[disabled]:hover{
+    background-color: blue;
+    border-radius: 7px;
+    border-color: red;
+  }
+}
+
+//show
+
+div.car-detail{
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  margin: 5px auto;
+  border: 3px solid red;
+  border-radius: 7px;
+  color: white;
+
+  p.btn{
+    height: 30%;
+    color: white;
+    background-color: red;
+    border: 3px solid blue;
+  }
+
+  p.btn:hover, p.btn[disabled]:hover{
+    background-color: blue;
+    border-radius: 7px;
+    border-color: red;
+  }
 }

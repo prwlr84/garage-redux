@@ -13,7 +13,7 @@ class CarsIndex extends Component {
      return (
               <Link to={`/cars/${car.id}`} key={car.id}>
                 <div className="car">
-                  <img src='https://picsum.photos/100' alt=""/>
+                  <img src='https://source.unsplash.com/featured/?tuning' alt=""/>
                   <h2>{car.brand} - {car.model}</h2>
                   <h3>{car.owner}</h3>
                 </div>
