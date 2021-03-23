@@ -21,6 +21,7 @@
     "webpack-dev-server": "^3.11.2"
   },
   "dependencies": {
+    "express": "^4.17.1",
     "history": "^5.0.0",
     "react": "17.0.1",
     "react-dom": "17.0.1",
@@ -33,6 +34,7 @@
   },
   "scripts": {
     "start": "webpack serve",
-    "deploy": "echo \"You are using react-router. You can't deploy on GitHub Pages\""
+    "deploy": "echo \"You are using react-router. You can't deploy on GitHub Pages\"",
+    "proxy": "http://localhost:8080"
   }
 }
