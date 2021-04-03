@@ -1,3 +1,7 @@
+Redux - Garage
+
+React-Redux-Router-Plugins-Example
+
 # redux-router-boilerplate
 
 Simple React + Router + Redux starter with the following config:
